@@ -217,5 +217,8 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# Media
+media/
+
 # Node.js
 node_modules/

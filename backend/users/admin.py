@@ -5,7 +5,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group
 from django.utils.html import format_html
 
-from .models import User
+from .models import Subscription, User
 
 
 @admin.register(User)
@@ -103,6 +103,24 @@ class CustomUserAdmin(UserAdmin):
                 obj.avatar.url,
             )
         return "Нет аватара"
+
+
+@admin.register(Subscription)
+class SubscriptionAdmin(admin.ModelAdmin):
+    """Настройки отображения подписок в админ-панели."""
+
+    list_display = (
+        "id",
+        "user",
+        "author",
+    )
+    list_display_links = ("user",)
+    ordering = ("user",)
+
+    autocomplete_fields = (
+        "user",
+        "author",
+    )
 
 
 admin.site.unregister(Group)

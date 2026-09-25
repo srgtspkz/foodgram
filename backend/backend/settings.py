@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "users.apps.UsersConfig",
+    "recipes.apps.RecipesConfig",
+    "import_export",
 ]
 
 MIDDLEWARE = [
@@ -131,3 +133,5 @@ MAILERS = {
 }
 
 AUTH_USER_MODEL = "users.User"
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = int(os.getenv("DATA_UPLOAD_MAX_NUMBER_FIELDS", ""))

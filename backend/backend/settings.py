@@ -32,9 +32,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "import_export",
+    "rest_framework",
+    "rest_framework.authtoken",
+    "django_filters",
+    "djoser",
     "users.apps.UsersConfig",
     "recipes.apps.RecipesConfig",
-    "import_export",
+    "api.apps.ApiConfig",
 ]
 
 MIDDLEWARE = [
@@ -135,3 +140,30 @@ MAILERS = {
 AUTH_USER_MODEL = "users.User"
 
 DATA_UPLOAD_MAX_NUMBER_FIELDS = int(os.getenv("DATA_UPLOAD_MAX_NUMBER_FIELDS", ""))
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.TokenAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+    ),
+    "DEFAULT_FILTER_BACKENDS": (
+        "django_filters.rest_framework.DjangoFilterBackend",
+        "rest_framework.filters.SearchFilter",
+    ),
+    "DEFAULT_PAGINATION_CLASS": ("api.pagination.FoodgramPagination"),
+}
+
+DJOSER = {
+    "LOGIN_FIELD": "email",
+    "HIDE_USERS": False,
+    "SERIALIZERS": {
+        "user": "api.serializers.UserSerializer",
+        "current_user": "api.serializers.UserSerializer",
+        "user_create": "api.serializers.UserCreateSerializer",
+    },
+    "PERMISSIONS": {
+        "user_list": ("rest_framework.permissions.AllowAny",),
+    },
+}

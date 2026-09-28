@@ -33,7 +33,7 @@ const Footer = () => {
       </div>
 
       <div class={styles.footer__copyright}>
-      © {(new Date()).getFullYear()}
+      &copy; {(new Date()).getFullYear()} Foodgram
       </div>
     </Container>
   </footer>

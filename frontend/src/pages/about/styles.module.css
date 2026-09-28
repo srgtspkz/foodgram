@@ -1,6 +1,7 @@
 .content {
   display: grid;
   grid-template-columns: 1fr 300px;
+  column-gap: 40px;
   text-align: left;
   justify-content: space-between;
 }

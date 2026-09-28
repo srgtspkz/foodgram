@@ -218,6 +218,12 @@ POSTGRES_HOST=localhost
 python manage.py migrate
 ```
 
+Создайте суперпользователя:
+
+```bash
+python manage.py createsuperuser
+```
+
 Запустите сервер:
 
 ```bash

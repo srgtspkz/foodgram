@@ -230,6 +230,24 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
+После запуска backend будет доступен по адресу:
+
+```text
+http://127.0.0.1:8000/
+```
+
+Административная панель:
+
+```text
+http://127.0.0.1:8000/admin/
+```
+
+API:
+
+```text
+http://127.0.0.1:8000/api/
+```
+
 ## Основные API-маршруты
 
 ### Пользователи
